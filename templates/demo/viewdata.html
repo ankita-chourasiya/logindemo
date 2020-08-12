@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		table{
+			width: 800px;
+			margin-left: 200px;
+			margin-top: 50px;
+		}
+		th{
+			background-color: black;
+			color: white;
+			text-align: center;
+		}
+		table td{
+			background-color: grey;
+			text-align: center;
+		}
+		table td img{
+			height: 25px;
+			width: 25px;
+		}
+
+	</style>
+</head>
+<body>
+	<h1 style="text-align: center;"> All Registration Data</h1>
+{% if key %}
+<table border="1">
+  <tr><th>Email</th>
+      <th>Name</th>
+      <th>Contact</th>
+      <th>Update</th> 
+      <th>Detete</th>   
+  </tr>
+  {% for d in key %}
+  <tr><td>{{d.email}}</td>
+      <td>{{d.name}}</td>
+      <td>{{d.contact}}</td>
+      <td><a href="editdata?q={{d.id}}"><img src="{% static 'demo/edit.webp'%}"></a></td>
+      <td><a href="deletedata?q={{d.id}}"><img src="{% static 'demo/del.png'%}"></a></td>
+  </tr>
+ {% endfor %}
+ {% else %} 
+ <p>no data available</p>
+</table>
+{% endif%}
+
+
+
+</body>
+</html>

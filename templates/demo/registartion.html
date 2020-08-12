@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+  html{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+}
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background: gray;
+  display: table; 
+}
+.signin{
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius: 15px;
+  padding: 3em;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+h2{
+  font-family: Source Sans pro;
+  font-weight: lighter;
+  color: #fff;
+  font-size: 50px;
+  text-align: center;
+}
+input{
+  display: block;
+  width: 320px;
+  height: 50px;
+  background-color: rgba(0,0,0,0.3);
+  outline: none;
+  border:1px solid rgba(0,0,0,0.5);
+  font-family: Source Sans pro;
+  font-weight: lighter;
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  border-radius: 15px;
+}
+button{
+  width: 332px;
+  height: 50px;
+  font-size: 16px;
+  background:#000;
+  font-weight: lighter;
+  color: #fff;
+  border-radius: 15px;
+  border:0px;
+}
+
+</style>
+
+</head>
+<body>
+    <div class="signin">
+        <form class="box" action="addData" method="POST">
+            {% csrf_token %}
+            <h2>Register</h2>   
+            <input type="email" placeholder="Enter Email" name="email"  required>
+            <input type="text" placeholder="Enter User Name" name="name" required>
+            <input type="text" placeholder="Enter Contact Number" name="contact" required>
+            <input type="password" placeholder="Enter Password" name="psw"  required>
+            <button type="submit" class="registerbtn">Register</button>
+                {{msg}}
+            <p>Already have an account? <a href="login">Sign in</a></p>
+        </form>
+    </div>
+
+</body>
+</html>
